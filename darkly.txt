@@ -1,0 +1,18 @@
+darkly
+
+1. commentaire peut etre intercepter et changer avec burpsuite et le proxy
+
+
+
+notes:
+I forgot my password request : 
+GET /index.php?page=recover HTTP/1.1
+Host: 192.168.1.199
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://192.168.1.199/index.php?page=signin
+Accept-Encoding: gzip, deflate
+Accept-Language: en-BE,en-US;q=0.9,en;q=0.8,fr;q=0.7
+Cookie: I_am_admin=68934a3e9455fa72420237eb05902327
+Connection: close
