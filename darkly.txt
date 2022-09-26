@@ -18,4 +18,4 @@ Idea:
 
 notes:
 Cookie: I_am_admin=68934a3e9455fa72420237eb05902327
-
+Manipulate URL parameters?
