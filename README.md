@@ -16,6 +16,10 @@ To setup the webiste that has to be hacked follow the following steps.
 (Always click on ok to save virtual machine settings changes.)<br>
 5. Launch virtual machine, wait, go to given link.
 
+Possible issues:<br>
+* VM does not work on apple M1 chips.
+* Launching the VM with iso file does not return correct link when on macOS Montery but it does function on Catalina at least.
+
 ## Documentation
 ### Courses
 https://www.codecademy.com/learn/introduction-to-cybersecurity<br>
