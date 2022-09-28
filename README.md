@@ -1,7 +1,7 @@
 # Darkly
 
 In this project we need to hack a given website.<br>
-Vulnerabilities are described in 'darkly.txt'.<br>
+Vulnerabilities are described in 'VULNERABILITIES.md'.<br>
 Flags refer to vulnerability identifiers in the form of a random code and proves a vulnerability has been found.
 
 https://cdn.intra.42.fr/pdf/pdf/60806/en.subject.pdf
