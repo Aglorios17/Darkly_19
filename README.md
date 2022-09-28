@@ -12,6 +12,7 @@ To setup the webiste that has to be hacked follow the following steps.
 2. Use VM to launch a virtual machine of type 'linux' and version 'Oracle 64bit'.<br>
 3. In settings of this virtual machine go to 'Network' set 'Attached to' to 'Bridged Adapter', in 'Advanced' set 'Promiscuous Mode' to 'Allow All'.<br>
 4. In settings of this virtual machine go to 'Storage' and as shown in image click on 'Empty' followed by the right disk and choose the downloaded disk file 'Darkly_i386.iso'.<br>
+![](/images/1.png)
 5. Always click on ok to save virtual machine settings changes.<br>
 6. Launch virtual machine, wait, go to given link.
 
