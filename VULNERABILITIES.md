@@ -19,5 +19,5 @@ I took the URL, changed the value in URL parameter 'site=' and browsed to this U
 ### Flag
 46910D9CE35B385885A9F7E2B336249D622F29B267A1771FBACF52133BEDDBA8
 ### Reproduce
-You can intercept the request and accept other than allowed files
+You can intercept the request and accept other than allowed files in the upload page (/index.php?page=upload#)
 ![](/images/4.png)<br>
