@@ -12,3 +12,4 @@
 
 **OTHER NOTES**
 Cookie: I_am_admin=68934a3e9455fa72420237eb05902327
+Found in page source -> <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
