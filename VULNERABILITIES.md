@@ -26,5 +26,5 @@ You can intercept the request and accept other than allowed files in the upload 
 ### Flag
 03A944B434D5BAFF05F46C4BEDE5792551A2595574BCAFC9A6E25F67C382CCAA
 ### Reproduce
-You can intercept the request and change the value for the vote
+You can intercept the request and change the value for the vote in the survey page (/?page=survey#)
 ![](/images/5.png)<br>
