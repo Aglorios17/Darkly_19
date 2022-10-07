@@ -11,6 +11,6 @@
 10. Manipulate URL parameters?
 
 **OTHER NOTES**
-Cookie: I_am_admin=68934a3e9455fa72420237eb05902327 => decrypt = false
-Found in page source -> <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-in htpasswd -> root:437394baff5aa33daa618be47b75cb49
+Cookie: I_am_admin=68934a3e9455fa72420237eb05902327 => decrypt = false 
+-> encrypt 'true' = b326b5062b2f0e69046810717534cb09
+When clicking on blue eagle -> http://192.168.1.116/?page=media&src=nsa
