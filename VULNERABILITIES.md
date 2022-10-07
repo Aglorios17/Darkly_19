@@ -103,5 +103,3 @@ Now we can login on '/admin' with root as username and qwerty123@ as password.
 
 ### Understand
 The danger of course comes from unauthorized users accessing the admin area.
-
-### Understand
