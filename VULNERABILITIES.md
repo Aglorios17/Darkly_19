@@ -73,13 +73,12 @@ User inputs can also be validated, meaning if an email is not written in correct
 
 ## 6 - member search SQL injection
 ### Flag
-FortyTwo
+9995cae900a927ab1500d317dfcc52c0ad8a521bea878a8e9fa381b41459b646
 
 ### Reproduce
 On search member page do a union-based SQL query to find database structure with `105 UNION SELECT TABLE_NAME, COLUMN_NAME  FROM Information_schema.columns`. This allows to do union-based SQL queries on the database's content. When demanding this content `105 UNION SELECT Commentaire, countersign  FROM users`, we are asked to decrypt a password as shown below.
 ![](/images/6.png)<br>
-After decrypting the password with the md5 hash function, we get 'FortyTwo'.<br>
-Because the first name of the user from whom we decrypted the password is 'Flag' and last name 'GetThe' we consider the decrypted password 'FortyTwo' to be a flag.
+After decrypting the password with the md5 hash function, we get 'FortyTwo'. Encrypting FortyTwo with the SHA256 function gives us '9995cae900a927ab1500d317dfcc52c0ad8a521bea878a8e9fa381b41459b646' which should be the flag.
   
 ### Understand
 In apps containing a database, SQL injections consists of writing SQL code inside inputs, if this input is subsequently used inside an SQL database query, access is given to the database to unauthorized users.<br>
@@ -103,3 +102,16 @@ Now we can login on '/admin' with root as username and qwerty123@ as password.
 
 ### Understand
 The danger of course comes from unauthorized users accessing the admin area.
+
+## 8 - search image SQL injection
+### Fag
+f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188
+
+### Reproduce
+On search image page display all the available images with the following boolean-based SQL injection `105 OR 1=1` (it always return true and thus returns all the images). This gives us the image with title 'Hack me ?'.<br>
+Retrieve the database's structure to be able to query sensitive data afterwards with this union-based SQL injection `105 UNION SELECT TABLE_NAME, COLUMN_NAME FROM Information_schema.columns`. This gives us a table named list_images with the columns comment, title, url and id.<br>
+When querying for the comment column with this union-based SQL injection `105 UNION SELECT comment, title FROM list_images` we get this as comment from the image titled 'Hack me ?' 'If you read this just use this md5 decode lowercase then sha256 to win this flag ! : 1928e8083cf461a51303633093573c46'.<br>
+When decrypting '1928e8083cf461a51303633093573c46' with the md5 hash function we get 'albatroz' which is the song on the Diomedeidae page. Lastly encrypting albatroz with the SHA256 function gives us 'f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188' which should be the flag.
+
+### Understand
+View Flag 6 to learn more about SQL injections.
