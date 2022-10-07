@@ -32,7 +32,7 @@ By having the server accept files who are not images it can also accept and exec
 You can intercept the request and change the value for the vote in the survey page (/?page=survey#).
 ![](/images/5.png)<br>
 
-## 5 - feedback XSS attack
+## 5 - feedback comments XSS attack
 ### Flag
 0FBB54BBF7D099713CA4BE297E1BC7DA0173D8B3C21C1811B916A3A86652724E
 
