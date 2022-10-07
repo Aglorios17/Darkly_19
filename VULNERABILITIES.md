@@ -89,3 +89,19 @@ The danger of SQL injections is of course the ability of unauthorized users to i
 
 To prevent SQL-injections one can sanitize user inputs, meaning removing/replacing problematic characters that could lead to an SQL injection with safe versions. User inputs can also be validated, meaning if an email is not written in correct format it will be rejected for example, this can also prevent malicious inputs.<br>
 However the best way to prevent SQL injections is to use 'prepared statements' inside SQL queries. Prepared statements are predefined SQL queries that take user input and place them into placeholders not considering those as SQL just as arguments for the predefined SQL query.
+
+## 7 - admin login htpasswd
+### Flag
+d19b4823e0d5600ceed56d5e896ef328d7a2b9e7ac7e80f4fcdb9b10bcb3e7ff
+
+### Reproduce
+??!!I found this 'htpasswd -> root:437394baff5aa33daa618be47b75cb49' in notes.txt but I do not know where it came from!!??<br>
+On website we can access the admin login page by adding '/admin' in URL.<br>
+Using this information, 'htpasswd -> root:437394baff5aa33daa618be47b75cb49', we can successfully enter the admin area.<br>
+The password can be decrypted with the md5 hash function so we get 'qwerty123@'.<br>
+Now we can login on '/admin' with root as username and qwerty123@ as password.
+
+### Understand
+The danger of course comes from unauthorized users accessing the admin area.
+
+### Understand
