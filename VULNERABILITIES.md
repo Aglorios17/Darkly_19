@@ -33,6 +33,9 @@ You can intercept the request and accept other than allowed files in the upload 
 ### Understand
 By having the server accept files who are not images it can also accept and execute malicious scripts.
 
+Spoofing consists of disguising as a trusted entity for the hacker to get what he wants at the detriment of the victim. Here we spoof by making believe a file to be of an acceptable type while it is not.<br>
+This breach could be avoided by not trusting request headers and instead manually verifying the file type.
+
 ## 4 - survey vote interception add votes
 ### Flag
 03A944B434D5BAFF05F46C4BEDE5792551A2595574BCAFC9A6E25F67C382CCAA
@@ -137,4 +140,6 @@ To avoid this breach websites should always consider cookies as sensitive data a
 In this exercise we were able to guess the cookie of the admin by how our own cookie is presented 'I_am_admin=false' with false being encrypted and because the encryption method used, namely md5, is an outdated unsecure encryption method.<br>
 Thus instead cookies should always be securely encrypted with the SHA256 hash function for example.<br>
 When setting up cookies for security the attributes 'secure' and 'httpOnly' can be set to true. A cookie with the secure attribute is only sent to the server with an encrypted request over the HTTPS protocol. A cookie with the HttpOnly attribute is inaccessible to the JavaScript Document.cookie preventing malicious scripts from collecting it.
+
+Spoofing consists of disguising as a trusted entity for the hacker to get what he wants at the detriment of the victim. Here we spoof by making believe we are admin through cookie manipulation.
 
