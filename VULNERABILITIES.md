@@ -143,3 +143,13 @@ When setting up cookies for security the attributes 'secure' and 'httpOnly' can 
 
 Spoofing consists of disguising as a trusted entity for the hacker to get what he wants at the detriment of the victim. Here we spoof by making believe we are admin through cookie manipulation.
 
+## 10 - brute force login page
+### Flag
+B3A6E43DDF8B4BBB4125E5E7D23040433827759D4DE1C04EA63907479A80A6B2
+
+### Reproduce
+Using Burp Suite or Curl and a list of password (https://github.com/danielmiessler/SecLists) you can brute force the login page url (/?page=signin&username=admin&password=test&Login=Login HTTP/1.1)
+Here the admin password is shadow
+
+### Understand
+Burp Suite or curl ?
