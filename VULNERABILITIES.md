@@ -152,4 +152,5 @@ Using Burp Suite or Curl and a list of password (https://github.com/danielmiessl
 Here the admin password is shadow
 
 ### Understand
-Burp Suite or curl ?
+how to know when I am login ?
+in this case, I analyzed the size of the answer body and when I saw a difference from the error page I concluded that the connection was made
