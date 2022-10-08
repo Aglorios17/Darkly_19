@@ -161,9 +161,9 @@ b12c4b2cb8094750ae121a676269aa9e2872d07c06e429d25a63196ec1c8c1d0
 
 ### Reproduce
 When we put something in url after the "/?page=" you can see an alert from the site looking for the page
-![](/images/7.png)<br>
+![](/images/7.PNG)<br>
 so the site is vulnerable for the LFI (local file include) so we try some command and find the flag (https://highon.coffee/blog/lfi-cheat-sheet/)
-![](/images/8.png)<br>
+![](/images/8.PNG)<br>
 
 
 
