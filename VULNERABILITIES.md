@@ -156,11 +156,15 @@ B3A6E43DDF8B4BBB4125E5E7D23040433827759D4DE1C04EA63907479A80A6B2
 Using Burp Suite or Curl and a list of password (https://github.com/danielmiessler/SecLists) you can brute force the login page url (/?page=signin&username=admin&password=test&Login=Login HTTP/1.1)
 Here the admin password is shadow
 
-Why started using the login named 'admin'?
-Why and how to use Burp Suite?
+TODO: Why started using the login named 'admin'?
+TODO: Why and how to use Burp Suite?
 
 ### Understand
-...
+The danger of a brute-force attack is of course an attacker having access to someone else's account on which he can make changes or retrieve sensitive datas. Another danger is if the user uses the same password on different platforms, if this is the case after seizing the user's password the attacker could try to login with that same password on other platforms such as those surrounding finance.
+
+One way of preventing brute-force attacks is to require users for passwords of a minimal strength.<br>
+Another way is to use multiple-factor-authentication at least when connecting from a new machine, the most common one being two-factor-authentification often consisting of first a password and second a phone text with a code being send to user's phone number. This is particularly useful in the case whereby the password got discovered by an attacker on another platform and now tries to login on this platform.<br>
+The simplest and most effective way of preventing this attack is account lockout, meaning users that try different passwords to login can get blocked after a certain amounts of tries.
 
 ## 11 - Local file include
 ### Flag
