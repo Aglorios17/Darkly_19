@@ -3,10 +3,12 @@
 1D4855F7337C0C14B6F44946872C4EB33853F40B2D54393FBE94F49F1E19BBB0
 
 ### Reproduce
-Recover password, intercept request and change mail.<br>
+On login page you can access the 'I forgot my password page' whereon you can submit a request, this request can be intercepted whereby we can change the value of the request header 'mail'.
 
 ### Understand
 Someone could ask to recover the password from someone else and have the mail send to himself, allowing him to change someone else's password.
+
+This can be avoided by keeping the receiving email address in the backend instead of sending it from the frontend.
 
 ## 2 - socials redirect change destination
 ### Flag
@@ -26,8 +28,10 @@ This can be avoided by validating the input. In this case only 'facebook', 'inst
 ## 3 - image upload interception accept all files
 ### Flag
 46910D9CE35B385885A9F7E2B336249D622F29B267A1771FBACF52133BEDDBA8
+
 ### Reproduce
-You can intercept the request and accept other than allowed files in the upload page (/index.php?page=upload#).
+On the page to upload images, when manually adding files only files who are images get accepted.<br>
+But when intercepting the image upload request we can change the request header 'Content-Type' to an image-file-type such as 'image/jpg' instead of a non-image-file-type such as 'application/octet-stream', allowing us to upload files who are not images.
 ![](/images/4.png)<br>
 
 ### Understand
@@ -40,11 +44,12 @@ This breach could be avoided by not trusting request headers and instead manuall
 ### Flag
 03A944B434D5BAFF05F46C4BEDE5792551A2595574BCAFC9A6E25F67C382CCAA
 ### Reproduce
-You can intercept the request and change the value for the vote in the survey page (/?page=survey#).
-![](/images/5.png)<br>
+On survey page when submitting a vote the HTTP request can be intercepted, at interception the value of the HTTP request header named 'valeur' can be changed so that it is outside the acceptable range, in this case namely above 10.
 
 ### Understand
 Someone could manipulate the votes by giving extra votes for someone.
+
+This breach could be avoided by having the backend verify if the received vote number is inside the acceptable range, basically validating the user input data.
 
 ## 5 - feedback comments XSS attack
 ### Flag
@@ -151,19 +156,25 @@ B3A6E43DDF8B4BBB4125E5E7D23040433827759D4DE1C04EA63907479A80A6B2
 Using Burp Suite or Curl and a list of password (https://github.com/danielmiessler/SecLists) you can brute force the login page url (/?page=signin&username=admin&password=test&Login=Login HTTP/1.1)
 Here the admin password is shadow
 
+Why started using the login named 'admin'?
+Why and how to use Burp Suite?
+
 ### Understand
-how to know when I am login ?
-in this case, I analyzed the size of the answer body and when I saw a difference from the error page I concluded that the connection was made
+...
 
 ## 11 - Local file include
 ### Flag
 b12c4b2cb8094750ae121a676269aa9e2872d07c06e429d25a63196ec1c8c1d0 
 
 ### Reproduce
-When we put something in url after the "/?page=" you can see an alert from the site looking for the page
-![](/images/7.PNG)<br>
-so the site is vulnerable for the LFI (local file include) so we try some command and find the flag (https://highon.coffee/blog/lfi-cheat-sheet/)
-![](/images/8.PNG)<br>
+URL query has the following query parameter "/?page=" when navigating to a page different than the index page. Changing the value of this query parameter we may be able to access unauthorized files.<br>
+When changing the value of this query parameter we receive alert boxes with messages. When using values like those '../', '../..' to travel backwards in directories we receive messages inside those alert boxes indicating we are on the right path, until at this value '../../../../../../../' a message indicating we are in the right directory. That is when we try to add 'etc/passwd', an unauthorized file containing sensitive information, as this is a file found in most operating systems.
+
+### Understand
+This attack is an LFI (local file include), meaning the attacker is able to include (access or even execute) files that exist on the target web-server's local filesystem.<br>
+Usually the danger lies in an attacker being able to retrieve sensitive datas from unauthorized files, as we did here with the commonly found, on most operating systems, '/etc/passwd' file.
+
+To avoid this breach we could prevent the search of files outside of a predefined directory or we could validate the user input to only accept certain predefined files.
 
 ## 12 - XSS image
 ### Flag
