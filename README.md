@@ -21,7 +21,7 @@ Possible issues:<br>
 * Launching the VM with iso file does not return correct link when on macOS Montery but it does function on Catalina at least.
 
 ## Documentation
-### Courses
 https://www.codecademy.com/learn/introduction-to-cybersecurity<br>
 https://www.codecademy.com/learn/cybersecurity-for-business<br>
 https://www.codecademy.com/learn/defending-express-applications-from-sql-injection-xss-csrf-attacks<br>
+https://highon.coffee/blog/lfi-cheat-sheet/
