@@ -24,4 +24,4 @@ Possible issues:<br>
 https://www.codecademy.com/learn/introduction-to-cybersecurity<br>
 https://www.codecademy.com/learn/cybersecurity-for-business<br>
 https://www.codecademy.com/learn/defending-express-applications-from-sql-injection-xss-csrf-attacks<br>
-https://highon.coffee/blog/lfi-cheat-sheet/
+https://highon.coffee/blog/lfi-cheat-sheet
