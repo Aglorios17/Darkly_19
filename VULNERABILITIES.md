@@ -208,3 +208,8 @@ change referer in header by https://www.nsa.gov/
 FIRST STEP DONE
 change user agent by ft_bornToSec found in the response from curl
 flag retreive
+
+## 14 - Hidden flag
+### Flag
+
+### Understand
