@@ -199,17 +199,19 @@ As explained in flag 5 usually sanitization is used to prevent XSS attacks.<br>
 Here we had to encode the malicious script using base64 as base64 is used to create Data URLs. The danger here lies in that because the malicious script is encoded it can evade detection and bypass certain forms of sanitization.<br>
 Thus to prevent base64 encoded XSS attacks, as in this example, the input must be validated, meaning it should be verified as being one of the possible files and nothing else.
 
-## 13 - Header attack
+## 13 - Spoofing attack
 ### Flag
 F2A29020EF3132E01DD61DF97FD33EC8D7FCD1388CC9601E7DB691D17D4D6188
 
-### Understand
+### Reproduce
 change referer in header by https://www.nsa.gov/
 FIRST STEP DONE
 change user agent by ft_bornToSec found in the response from curl
 flag retreive
 
+`curl -s -H 'User-Agent: ft_bornToSec' -H 'Referer: https://www.nsa.gov/' 'http://192.168.1.116/?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f' | grep -i 'flag'`
+
 ## 14 - Hidden flag
 ### Flag
 
-### Understand
+### Reproduce
