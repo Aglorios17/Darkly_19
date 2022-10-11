@@ -148,15 +148,19 @@ When setting up cookies for security the attributes 'secure' and 'httpOnly' can 
 
 Spoofing consists of disguising as a trusted entity for the hacker to get what he wants at the detriment of the victim. Here we spoof by making believe we are admin through cookie manipulation.
 
-## 10 - brute force login page
+## 10 - brute-force login page
 ### Flag
 B3A6E43DDF8B4BBB4125E5E7D23040433827759D4DE1C04EA63907479A80A6B2
 
 ### Reproduce
-Using Burp Suite or Curl and a list of password (https://github.com/danielmiessler/SecLists) you can brute force the login page url (/?page=signin&username=admin&password=test&Login=Login HTTP/1.1)
-Here the admin/root password is shadow
+On the login page we tried to enter an account of someone else using a brute-force attack. For the brute-force attack we used a software called 'Burp Suite'.<br>
+Burp can take two lists one of potential logins and one of potential passwords. We used lists found on github's popular repository describing common logins and passwords (https://github.com/danielmiessler/SecLists). Burp will try all the possible combinations by putting them in the appropriate URL ({DARKLY_WEBSITE_URL}/?page=signin&username={LOGIN}&password={PASSWORD}&Login=Login), display them and the result is represented as returned content's length. The good combination of 'admin' and 'shadow' or 'root' and 'shadow' will return the flag and thus a content length that is longer. By ordering on returned content's length we can view the successful combinations with a longer content's length.
+
+Here for the login 'admin' and 'root' the password is 'shadow'.
 
 ### Understand
+A brute-force attack consists of trying to find all possible login and password combinations possible to be able to login in someone else's account. Sometimes the login is known and only the password is searched. Sometimes lists with common logins and passwords are used or sometimes literally all possible letter combinations are tried which is more time consuming.  
+
 The danger of a brute-force attack is of course an attacker having access to someone else's account on which he can make changes or retrieve sensitive datas. Another danger is if the user uses the same password on different platforms, if this is the case after seizing the user's password the attacker could try to login with that same password on other platforms such as those surrounding finance.
 
 One way of preventing brute-force attacks is to require users for passwords of a minimal strength.<br>
@@ -201,12 +205,16 @@ Thus to prevent base64 encoded XSS attacks, as in this example, the input must b
 F2A29020EF3132E01DD61DF97FD33EC8D7FCD1388CC9601E7DB691D17D4D6188
 
 ### Reproduce
-change referer in header by https://www.nsa.gov/
-FIRST STEP DONE
-change user agent by ft_bornToSec found in the response from curl
-flag retreive
+We examinated the source code of this page '/?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f' which we will call the 'albatroz' page. One comment stood out namely 'You must come from : "https://www.nsa.gov/".'.<br>
+In HTTP request headers we changed the 'Referer' header to 'https://www.nsa.gov/' with curl like this `curl -s -H 'Referer: https://www.nsa.gov/' 'http://172.20.10.4/?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f'`, which gave us a new page source code with the comment 'FIRST STEP DONE' and another one 'use this browser : "ft_bornToSec". It will help you a lot.'.<br>
+Based on the last comment we changed the HTTP request header 'User-Agent' to 'ft_bornToSec' using curl like this 
+`curl -s -H 'User-Agent: ft_bornToSec' -H 'Referer: https://www.nsa.gov/' 'http://192.168.1.116/?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f' | grep -i 'flag'`, which successfully gave us the flag.
 
-`curl -s -H 'User-Agent: ft_bornToSec' -H 'Referer: https://www.nsa.gov/' 'http://192.168.1.116/?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f' | grep -i 'flag'`
+### Understand
+This is a spoofing attack because we disguise ourselves, through HTTP header manipulation, as a trusted entity to get what we want as a hacker at the detriment of the victim.<br>
+We make the server believe we come from a certain IP address and use a specific browser while we do not.
+
+The danger here lies in the server changing our permissions thus potentially giving unauthorized access to malicious hackers by believing we are someone else. To avoid this breach the server should not blindly trust incoming HTTP headers.
 
 ## 14 - Hidden flag
 ### Flag
