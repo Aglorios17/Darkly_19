@@ -249,4 +249,4 @@ Alternative :
 - limit IPs that can access (Allow/Deny, Host Firewall)
 - log access, review logs
 - access control
-- return to a about page (humans.txt)
+- redirection to a about page (humans.txt)
