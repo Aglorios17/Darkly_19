@@ -5,6 +5,8 @@
 ### Reproduce
 On login page you can access the 'I forgot my password page' whereon you can submit a request, this request can be intercepted whereby we can change the value of the request header 'mail'.
 
+We use the software named 'Burp Suite' to enable HTTP request interception.
+
 ### Understand
 Someone could ask to recover the password from someone else and have the mail send to himself, allowing him to change someone else's password.
 
