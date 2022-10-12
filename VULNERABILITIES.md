@@ -230,3 +230,23 @@ A robots.txt file tells search engine crawlers which URLs the crawler can access
 We used a crawler to read all the files in '.hidden' and find the flag, a crawler works by reading one page, collecting all the URLs, going to all those URLs and so forth, read all available files until it reads all the available content or reaches a certain goal.
 
 The danger of this breach comes from sensitive content being accessible to unauthorized users. To avoid this breach sensitive data should never be displayed on pages that are accessible to all users.
+
+
+## More - Robots.txt
+### Understand
+Good :
+- useful to limit crawler on the website
+- block acces to specific page for the user
+- limit the autindex from some search engine
+
+Bad :
+- We can give some idea of secret page or documents to the attacker (disallow: /admin/)
+- If you stock sensitive data on the webserver, the attacker can maybe found the link to password, ... (never stock sensitve data)
+
+Alternative :
+- only use Https
+- user & pass required (HTTP Basic, CookieAuth, NTLM, etc.)
+- limit IPs that can access (Allow/Deny, Host Firewall)
+- log access, review logs
+- access control
+- return to a about page (humans.txt)
