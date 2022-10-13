@@ -4,7 +4,7 @@
 
 ### Reproduce
 On search member page do a union-based SQL query to find database structure with `105 UNION SELECT TABLE_NAME, COLUMN_NAME  FROM Information_schema.columns`. This allows to do union-based SQL queries on the database's content. When demanding this content `105 UNION SELECT Commentaire, countersign  FROM users`, we are asked to decrypt a password as shown below.
-![](/../images/6.png)<br>
+![](/images/6.png)<br>
 After decrypting the password with the md5 hash function, we get 'FortyTwo'. Encrypting FortyTwo with the SHA256 function gives us '9995cae900a927ab1500d317dfcc52c0ad8a521bea878a8e9fa381b41459b646' which should be the flag.
   
 ### Understand
