@@ -5,7 +5,7 @@
 ### Reproduce
 On the page to upload images, when manually adding files only files who are images get accepted.<br>
 But when intercepting the image upload request we can change the request header 'Content-Type' to an image-file-type such as 'image/jpg' instead of a non-image-file-type such as 'application/octet-stream', allowing us to upload files who are not images.
-![](/../images/4.png)<br>
+![](/images/4.png)<br>
 
 ### Understand
 By having the server accept files who are not images it can also accept and execute malicious scripts.
