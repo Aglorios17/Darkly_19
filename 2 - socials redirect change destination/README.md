@@ -4,7 +4,7 @@ B9E775A0291FED784A2D9680FCFAD7EDD6B8CDF87648DA647AAF4BBA288BCAB3
 
 ### Reproduce
 URL parameters are used to link to website's associated socials as I found here by reading HTML source code of index page.<br>
-![](/../images/3.png)<br>
+![](/images/3.png)<br>
 I took the URL, changed the value in query parameter 'site=' and browsed to this URL.<br>
 ![](/../images/2.png)<br>
 
