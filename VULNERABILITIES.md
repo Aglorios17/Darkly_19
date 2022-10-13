@@ -113,7 +113,7 @@ Now we can login on '/admin' with root as username and qwerty123@ as password.
 ### Understand
 The danger here of course comes from unauthorized users accessing the admin area. The admin password should never be freely available on website.
 
-A robots.txt file tells search engine crawlers which URLs the crawler can access on a site it is used to keep certain files off Google/browser-searches. Hackers can use it to find hidden files.<br>
+A robots.txt file tells search engine crawlers which URLs the crawler can access, on a site it is used to keep certain files off Google/browser-searches. Hackers can use it to find hidden files.<br>
 'htpasswd' is a flat-file used to store usernames and password for basic authentication. It should never be accessible to unauthorized users.<br>
 On this website robots.txt enabled us to find the httpasswd file and subsequently the admin's password.
 
@@ -122,7 +122,7 @@ On this website robots.txt enabled us to find the httpasswd file and subsequentl
 f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188
 
 ### Reproduce
-On search image page display all the available images with the following boolean-based SQL injection `105 OR 1=1` (it always return true and thus returns all the images). This gives us the image with title 'Hack me ?'.<br>
+On search image page display all the available images with the following boolean-based SQL injection `105 OR 1=1` (it always returns true and thus returns all the images). This gives us the image with title 'Hack me ?'.<br>
 Retrieve the database's structure to be able to query sensitive data afterwards with this union-based SQL injection `105 UNION SELECT TABLE_NAME, COLUMN_NAME FROM Information_schema.columns`. This gives us a table named list_images with the columns comment, title, url and id.<br>
 When querying for the comment column with this union-based SQL injection `105 UNION SELECT comment, title FROM list_images` we get this as comment from the image titled 'Hack me ?' 'If you read this just use this md5 decode lowercase then sha256 to win this flag ! : 1928e8083cf461a51303633093573c46'.<br>
 When decrypting '1928e8083cf461a51303633093573c46' with the md5 hash function we get 'albatroz' which is the song on the Diomedeidae page. Lastly encrypting albatroz with the SHA256 function gives us 'f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188' which should be the flag.
@@ -167,7 +167,7 @@ The danger of a brute-force attack is of course an attacker having access to som
 
 One way of preventing brute-force attacks is to require users for passwords of a minimal strength.<br>
 Another way is to use multiple-factor-authentication at least when connecting from a new machine, the most common one being two-factor-authentification often consisting of first a password and second a phone text with a code being send to user's phone number. This is particularly useful in the case whereby the password got discovered by an attacker on another platform and now tries to login on this platform.<br>
-The simplest and most effective way of preventing this attack is account lockout, meaning users that try different passwords to login can get blocked after a certain amounts of tries.
+The simplest and most effective way of preventing this attack is account lockout, meaning users that try different passwords to login can get blocked after a certain amount of tries.
 
 ## 11 - Local file include
 ### Flag
@@ -239,11 +239,11 @@ The danger of this breach comes from sensitive content being accessible to unaut
 Good :
 - useful to limit crawler on the website
 - block acces to specific page for the user
-- limit the autindex from some search engine
+- limit the auto-index from some search engine
 
 Bad :
 - We can give some idea of secret page or documents to the attacker (disallow: /admin/)
-- If you stock sensitive data on the webserver, the attacker can maybe found the link to password, ... (never stock sensitve data)
+- If you stock sensitive data on the webserver, the attacker can maybe find a link towards a password, ... (never store sensitve data)
 
 Alternative :
 - only use Https
