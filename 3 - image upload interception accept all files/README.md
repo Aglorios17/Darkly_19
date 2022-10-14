@@ -11,5 +11,6 @@ But when intercepting the image upload request we can change the request header 
 By having the server accept files who are not images it can also accept and execute malicious scripts.
 
 Spoofing consists of disguising as a trusted entity for the hacker to get what he wants at the detriment of the victim. Here we spoof by making believe a file to be of an acceptable type while it is not.<br>
-This breach could be avoided by not trusting request headers and instead manually verifying the file type.
+This breach could be avoided by verifying manually the file type using a specialized software for it. Specialized software can also be used to scan the file content for malware. To remove risk further and make sure that files contain no hidden threats, it is best practice to remove any possible embedded objects (malicious scripts hidden inside normal file) by using a methodology called 'content disarm and reconstruction' (CDR).<br>
+The file content could also be sanitized to replace potentially dangerous characters and prevent malicious scripts.  
 
