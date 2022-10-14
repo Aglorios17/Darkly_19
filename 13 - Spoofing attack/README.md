@@ -12,4 +12,6 @@ Based on the last comment we changed the HTTP request header 'User-Agent' to 'ft
 This is a spoofing attack because we disguise ourselves, through HTTP header manipulation, as a trusted entity to get what we want as a hacker at the detriment of the victim.<br>
 We make the server believe we come from a certain IP address and use a specific browser while we do not.
 
-The danger here lies in the server changing our permissions thus potentially giving unauthorized access to malicious hackers by believing we are someone else. To avoid this breach the server should not blindly trust incoming HTTP headers.
+The danger here lies in the server changing our permissions thus potentially giving unauthorized access to malicious hackers by believing we are someone else.<br>
+
+To avoid this breach the server should not blindly trust incoming HTTP headers. Firewalls (A firewall is a tool designed to intercept and assess incoming and outgoing packets) can also help monitor suspicious activity by using a packet filter that inspects IP packet headers and who can detect fake source IP addresses.
