@@ -13,5 +13,9 @@ This is a spoofing attack because we disguise ourselves, through HTTP header man
 We make the server believe we come from a certain IP address and use a specific browser while we do not.
 
 The danger here lies in the server changing our permissions thus potentially giving unauthorized access to malicious hackers by believing we are someone else.<br>
+With a fake source address, hackers can appear like a trusted device on your network, then request sensitive information that your device will freely give away.<br>
+IP Spoofing could also be a way for attackers to hide their IP address instead of using a VPN.<br>
+Botnet attacks are used to flood websites with DDoS attacks, those botnets usually hide their IP address by spoofing.<br>
+Using this IP spoofing method, man-in-the-middle attackers can intercept communication between two devices in order to quietly alter or steal IP packets.
 
 To avoid this breach the server should not blindly trust incoming HTTP headers. Firewalls (A firewall is a tool designed to intercept and assess incoming and outgoing packets) can also help monitor suspicious activity by using a packet filter that inspects IP packet headers and who can detect fake source IP addresses.
